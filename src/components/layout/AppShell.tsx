@@ -1,26 +1,28 @@
-import type { ReactNode } from "react";
+import type {ReactNode} from "react";
 
-import Header from "./Header";
 import Footer from "./Footer";
+import MarketingHeader from "../marketing/MarketingHeader";
 
 type AppShellProps = {
   children: ReactNode;
 };
 
+/**
+ * Renders the shared public Lumivo application shell.
+ *
+ * @param {AppShellProps} props Shell content.
+ * @return {ReactNode} Global marketing header, page content and footer.
+ */
 export default function AppShell({
   children,
-}: AppShellProps) {
+}: AppShellProps): ReactNode {
   return (
     <>
-      <Header />
+      <MarketingHeader />
 
-      <main
-        style={{
-          minHeight: "calc(100vh - 144px)",
-        }}
-      >
+      <div className="min-h-[calc(100vh-144px)]">
         {children}
-      </main>
+      </div>
 
       <Footer />
     </>
